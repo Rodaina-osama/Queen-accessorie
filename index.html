@@ -187,6 +187,38 @@
             background-color: white;
         }
 
+        /* Search Box */
+        .search-container {
+            position: relative;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: var(--rose-gold);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .rtl .search-box button {
+            margin-left: 0;
+            margin-right: 5px;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--dusty-pink) 0%, var(--cream) 100%);
@@ -691,6 +723,10 @@
                 border-radius: 4px;
                 padding: 12px;
             }
+
+            .search-box input {
+                width: 150px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -704,6 +740,10 @@
             
             .modal-content {
                 padding: 20px;
+            }
+
+            .search-box {
+                display: none;
             }
         }
     </style>
@@ -723,6 +763,12 @@
                 </ul>
             </nav>
             <div class="header-actions">
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search products..." data-en-placeholder="Search products..." data-ar-placeholder="ابحث عن المنتجات...">
+                        <button id="searchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
                 <div class="language-switcher">
                     <select id="languageSelect">
                         <option value="en">EN</option>
@@ -1064,8 +1110,9 @@
     </div>
 
     <script>
-        // Sample Product Data
+        // Sample Product Data with 40+ products
         const products = [
+            // Original 12 products
             { id: 1, name: "Rose Gold Pearl Necklace", nameAr: "قلادة لؤلؤية ذهبية وردية", price: 1299, category: "necklaces", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
             { id: 2, name: "Crystal Drop Earrings", nameAr: "أقراط كريستال متدلية", price: 899, category: "earrings", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
             { id: 3, name: "Gold-plated Hair Clip", nameAr: "مشبش شعر مطلي بالذهب", price: 499, category: "hair", image: "https://images.unsplash.com/photo-1522338148004-0c22a0443e0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
@@ -1077,7 +1124,51 @@
             { id: 9, name: "Delicate Choker Necklace", nameAr: "قلادة تشوكر رقيقة", price: 799, category: "necklaces", image: "https://images.unsplash.com/photo-1596944946755-8b6dd76a73c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
             { id: 10, name: "Statement Tassel Earrings", nameAr: "أقراط شرابة جريئة", price: 999, category: "earrings", image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
             { id: 11, name: "Crystal Hair Comb", nameAr: "مشط شعر كريستالي", price: 599, category: "hair", image: "https://images.unsplash.com/photo-1559622214-e2d43c6f44a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-            { id: 12, name: "Velvet Headband", nameAr: "عصابة رأس مخملية", price: 349, category: "hair", image: "https://images.unsplash.com/photo-1580651315530-69c8e0026377?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
+            { id: 12, name: "Velvet Headband", nameAr: "عصابة رأس مخملية", price: 349, category: "hair", image: "https://images.unsplash.com/photo-1580651315530-69c8e0026377?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            
+            // Additional 20 Necklaces (IDs 13-32)
+            { id: 13, name: "Diamond Pendant Necklace", nameAr: "قلادة ماسة متدلية", price: 2499, category: "necklaces", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 14, name: "Gold Heart Locket", nameAr: "قلادة قلب ذهبية", price: 1899, category: "necklaces", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 15, name: "Silver Moon Charm", nameAr: "قلادة قمر فضية", price: 1199, category: "necklaces", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 16, name: "Crystal Cascade Necklace", nameAr: "قلادة كريستال متتالية", price: 1699, category: "necklaces", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 17, name: "Rose Quartz Pendant", nameAr: "قلادة كوارتز وردي", price: 1399, category: "necklaces", image: "https://images.unsplash.com/photo-1596944946755-8b6dd76a73c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 18, name: "Empress Pearl Collar", nameAr: "قلادة إمبراطورة لؤلؤية", price: 2199, category: "necklaces", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 19, name: "Royal Gold Chain", nameAr: "سلسلة ذهبية ملكية", price: 1799, category: "necklaces", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 20, name: "Sapphire Statement Piece", nameAr: "قطعة ياقوت زرقاء جريئة", price: 2899, category: "necklaces", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 21, name: "Minimalist Bar Necklace", nameAr: "قلادة شريطية مينيمالية", price: 899, category: "necklaces", image: "https://images.unsplash.com/photo-1596944946755-8b6dd76a73c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 22, name: "Vintage Cameo Necklace", nameAr: "قلادة كاميو عتيقة", price: 1599, category: "necklaces", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 23, name: "Turquoise Beaded Necklace", nameAr: "قلادة خرز فيروزي", price: 1299, category: "necklaces", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 24, name: "Diamond Cut Choker", nameAr: "قلادة تشوكر ماسية", price: 1999, category: "necklaces", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 25, name: "Rose Gold Name Necklace", nameAr: "قلادة اسم ذهبية وردية", price: 1499, category: "necklaces", image: "https://images.unsplash.com/photo-1596944946755-8b6dd76a73c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 26, name: "Crystal Sun Pendant", nameAr: "قلادة شمس كريستالية", price: 1399, category: "necklaces", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 27, name: "Pearl Strand Necklace", nameAr: "قلادة حب لؤلؤي", price: 1699, category: "necklaces", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 28, name: "Geometric Gold Necklace", nameAr: "قلادة ذهبية هندسية", price: 1199, category: "necklaces", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 29, name: "Emerald Drop Necklace", nameAr: "قلادة زمرد متدلية", price: 2399, category: "necklaces", image: "https://images.unsplash.com/photo-1596944946755-8b6dd76a73c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 30, name: "Initial Letter Necklace", nameAr: "قلادة حرف أول", price: 999, category: "necklaces", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 31, name: "Crystal Butterfly Pendant", nameAr: "قلادة فراشة كريستالية", price: 1299, category: "necklaces", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 32, name: "Royal Blue Statement Necklace", nameAr: "قلادة زرقاء ملكية جريئة", price: 1899, category: "necklaces", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            
+            // Additional 20 Earrings (IDs 33-52)
+            { id: 33, name: "Gold Hoop Earrings", nameAr: "أقراط دائرة ذهبية", price: 899, category: "earrings", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 34, name: "Pearl Drop Earrings", nameAr: "أقراط لؤلؤ متدلية", price: 1199, category: "earrings", image: "https://images.unsplash.com/photo-1506634572416-48cdfe530110?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 35, name: "Diamond Stud Earrings", nameAr: "أقراط ماسية صغيرة", price: 1999, category: "earrings", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 36, name: "Crystal Chandelier Earrings", nameAr: "أقراط ثريا كريستالية", price: 1499, category: "earrings", image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 37, name: "Silver Huggie Earrings", nameAr: "أقراط هاغي فضية", price: 699, category: "earrings", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 38, name: "Rose Gold Threader Earrings", nameAr: "أقراط خيوط ذهبية وردية", price: 799, category: "earrings", image: "https://images.unsplash.com/photo-1506634572416-48cdfe530110?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 39, name: "Emerald Cluster Earrings", nameAr: "أقراط عنقود زمردي", price: 2199, category: "earrings", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 40, name: "Moon and Star Earrings", nameAr: "أقراط قمر ونجوم", price: 999, category: "earrings", image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 41, name: "Crystal Ball Studs", nameAr: "أقراط كرات كريستالية", price: 849, category: "earrings", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 42, name: "Gold Leaf Drop Earrings", nameAr: "أقراط أوراق ذهبية متدلية", price: 1299, category: "earrings", image: "https://images.unsplash.com/photo-1506634572416-48cdfe530110?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 43, name: "Sapphire Teardrop Earrings", nameAr: "أقراط دمعة ياقوت زرقاء", price: 1799, category: "earrings", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 44, name: "Minimalist Bar Earrings", nameAr: "أقراط شريطية مينيمالية", price: 599, category: "earrings", image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 45, name: "Pearl Cluster Earrings", nameAr: "أقراط عنقود لؤلؤي", price: 1399, category: "earrings", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 46, name: "Crystal Geometric Earrings", nameAr: "أقراط كريستال هندسية", price: 1099, category: "earrings", image: "https://images.unsplash.com/photo-1506634572416-48cdfe530110?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 47, name: "Gold Knot Earrings", nameAr: "أقراط عقد ذهبية", price: 899, category: "earrings", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 48, name: "Turquoise Stud Earrings", nameAr: "أقراط فيروزية صغيرة", price: 749, category: "earrings", image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 49, name: "Diamond Hoop Earrings", nameAr: "أقراط دائرة ماسية", price: 2499, category: "earrings", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 50, name: "Crystal Flower Earrings", nameAr: "أقراط زهور كريستالية", price: 1199, category: "earrings", image: "https://images.unsplash.com/photo-1506634572416-48cdfe530110?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 51, name: "Silver Moon Earrings", nameAr: "أقراط قمر فضية", price: 999, category: "earrings", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 52, name: "Rose Gold Chain Earrings", nameAr: "أقراط سلسلة ذهبية وردية", price: 949, category: "earrings", image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
         ];
 
         // Shopping Cart
@@ -1109,6 +1200,8 @@
         const languageSelect = document.getElementById('languageSelect');
         const paymentMethods = document.getElementById('paymentMethods');
         const newsletterForm = document.getElementById('newsletterForm');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
@@ -1124,6 +1217,10 @@
             continueShopping.addEventListener('click', closeConfirmationModal);
             languageSelect.addEventListener('change', switchLanguage);
             newsletterForm.addEventListener('submit', subscribeNewsletter);
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') performSearch();
+            });
             
             // Payment method selection
             document.querySelectorAll('.payment-option').forEach(option => {
@@ -1261,6 +1358,39 @@
                 </div>
             `;
             return productCard;
+        }
+
+        // Search Functionality
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            if (!searchTerm) return;
+            
+            const results = products.filter(product => 
+                product.name.toLowerCase().includes(searchTerm) || 
+                product.nameAr.includes(searchTerm) ||
+                product.category.includes(searchTerm)
+            );
+            
+            if (results.length > 0) {
+                // Show search results in category page
+                currentPage = 'category';
+                homePage.style.display = 'none';
+                categoryPage.style.display = 'block';
+                helpPage.style.display = 'none';
+                
+                categoryHeader.innerHTML = `
+                    <h1>${currentLanguage === 'en' ? 'Search Results' : 'نتائج البحث'}</h1>
+                    <p>${currentLanguage === 'en' ? `Found ${results.length} products for "${searchTerm}"` : `تم العثور على ${results.length} منتج لـ "${searchTerm}"`}</p>
+                `;
+                
+                categoryProductGrid.innerHTML = '';
+                results.forEach(product => {
+                    const productCard = createProductCard(product);
+                    categoryProductGrid.appendChild(productCard);
+                });
+            } else {
+                alert(currentLanguage === 'en' ? 'No products found.' : 'لم يتم العثور على منتجات.');
+            }
         }
 
         // Open Category Page
