@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen - Crown Your Look | Elegant Accessories</title>
+    <meta name="description" content="Discover Queen's exclusive collection of elegant accessories. Necklaces, earrings, and hair accessories designed for the modern queen.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --rose-gold: #B76E79;
+            --dusty-pink: #E8B4B8;
+            --cream: #FDF6F0;
+            --deep-teal: #2A5C5E;
+            --gold: #D4AF37;
+            --dark-text: #333333;
+            --light-text: #666666;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        body.rtl {
+            direction: rtl;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        .script-font {
+            font-family: 'Brush Script MT', cursive;
+            color: var(--rose-gold);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--rose-gold);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--deep-teal);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--rose-gold);
+            color: var(--rose-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--rose-gold);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--rose-gold);
+            text-decoration: none;
+        }
+
+        .logo span {
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        .rtl nav ul li {
+            margin-left: 0;
+            margin-right: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--rose-gold);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-icon, .language-switcher {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--rose-gold);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rtl .cart-count {
+            right: auto;
+            left: -8px;
+        }
+
+        .language-switcher select {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dusty-pink) 0%, var(--cream) 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--light-text);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--rose-gold);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: var(--dusty-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--rose-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Category Section */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+
+        .category-necklaces {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-earrings {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-hair {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1522338148004-0c22a0443e0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            height: 400px;
+            background-color: var(--dusty-pink);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: var(--deep-teal);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .rtl .newsletter-form input {
+            border-radius: 0 4px 4px 0;
+        }
+
+        .newsletter-form button {
+            background-color: var(--rose-gold);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .rtl .newsletter-form button {
+            border-radius: 4px 0 0 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            text-decoration: none;
+            color: var(--light-text);
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--rose-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-text);
+        }
+
+        .rtl .close-modal {
+            right: auto;
+            left: 15px;
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .rtl .cart-total {
+            text-align: left;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-option:hover {
+            border-color: var(--rose-gold);
+        }
+
+        .payment-option.selected {
+            border-color: var(--rose-gold);
+            background-color: rgba(183, 110, 121, 0.1);
+        }
+
+        .payment-option input {
+            margin-right: 10px;
+        }
+
+        .rtl .payment-option input {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
+        .payment-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+            color: var(--rose-gold);
+        }
+
+        .rtl .payment-icon {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
+        /* Help Pages */
+        .help-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .help-section {
+            margin-bottom: 40px;
+        }
+
+        .help-section h3 {
+            margin-bottom: 15px;
+            color: var(--rose-gold);
+        }
+
+        .help-section p {
+            margin-bottom: 15px;
+        }
+
+        .help-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .rtl .help-section ul {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+
+        .help-section li {
+            margin-bottom: 8px;
+        }
+
+        /* Category Pages */
+        .category-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .category-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .category-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--light-text);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .rtl nav ul li {
+                margin: 5px 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">Q<span>ueen</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="#shop" class="nav-link" data-en="Shop" data-ar="المتجر">Shop</a></li>
+                    <li><a href="#help" class="nav-link" data-en="Help" data-ar="المساعدة">Help</a></li>
+                    <li><a href="#about" class="nav-link" data-en="About" data-ar="من نحن">About</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="language-switcher">
+                    <select id="languageSelect">
+                        <option value="en">EN</option>
+                        <option value="ar">AR</option>
+                    </select>
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i> <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home-page">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1 data-en="Crown Your Look" data-ar="توجي مظهرك">Crown Your Look</h1>
+                <p data-en="Discover our exclusive collection of elegant accessories designed for the modern queen." data-ar="اكتشفي مجموعتنا الحصرية من الإكسسوارات الأنيقة المصممة للملكة العصرية.">Discover our exclusive collection of elegant accessories designed for the modern queen.</p>
+                <a href="#shop" class="btn" data-en="Shop Now" data-ar="تسوقي الآن">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-en="Shop By Category" data-ar="تسوقي حسب الفئة">Shop By Category</h2>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card category-necklaces" onclick="openCategoryPage('necklaces')" data-en="Necklaces" data-ar="قلادات">Necklaces</div>
+                    <div class="category-card category-earrings" onclick="openCategoryPage('earrings')" data-en="Earrings" data-ar="أقراط">Earrings</div>
+                    <div class="category-card category-hair" onclick="openCategoryPage('hair')" data-en="Hair Accessories" data-ar="إكسسوارات الشعر">Hair Accessories</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals -->
+        <section class="section" id="shop">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-en="New Arrivals" data-ar="وصل حديثاً">New Arrivals</h2>
+                </div>
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 data-en="Our Story" data-ar="قصتنا">Our Story</h2>
+                        <p data-en="Queen was born from a passion for empowering women through elegant, high-quality accessories. Our founder, inspired by the strength and grace of queens throughout history, set out to create a brand that celebrates feminine power in all its forms." data-ar="ولدت علامة Queen من شغف بتمكين المرأة من خلال إكسسوارات أنيقة وعالية الجودة. مؤسستنا، مستوحاة من قوة ونعمة الملكات عبر التاريخ، سعت لإنشاء علامة تجارية تحتفي بالقوة الأنثوية بكل أشكالها.">Queen was born from a passion for empowering women through elegant, high-quality accessories. Our founder, inspired by the strength and grace of queens throughout history, set out to create a brand that celebrates feminine power in all its forms.</p>
+                        <p data-en="Each piece in our collection is thoughtfully designed to help you express your unique style and confidence. We believe that every woman deserves to feel like royalty in her own skin." data-ar="كل قطعة في مجموعتنا مصممة بعناية لمساعدتك في التعبير عن أسلوبك الفريد وثقتك. نؤمن بأن كل امرأة تستحق أن تشعر كالملكة في جلدها.">Each piece in our collection is thoughtfully designed to help you express your unique style and confidence. We believe that every woman deserves to feel like royalty in her own skin.</p>
+                        <a href="#" class="btn btn-outline" data-en="Learn More" data-ar="اعرفي المزيد">Learn More</a>
+                    </div>
+                    <div class="about-image">
+                        <span data-en="Queen Brand Image" data-ar="صورة علامة Queen" style="background: rgba(0,0,0,0.5); padding: 10px; border-radius: 4px;">Queen Brand Image</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h2 data-en="Join the Queen's Court" data-ar="انضمي إلى بلاط الملكة">Join the Queen's Court</h2>
+                <p data-en="Subscribe to our newsletter for exclusive offers, styling tips, and early access to new collections." data-ar="اشتركي في نشرتنا الإخبارية للحصول على عروض حصرية، نصائح حول التنسيق، والوصول المبكر للمجموعات الجديدة.">Subscribe to our newsletter for exclusive offers, styling tips, and early access to new collections.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" data-en-placeholder="Your email address" data-ar-placeholder="بريدك الإلكتروني" required>
+                    <button type="submit" data-en="Subscribe" data-ar="اشتراك">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Category Pages -->
+    <div id="category-page" style="display: none;">
+        <section class="section">
+            <div class="container">
+                <div class="category-header" id="categoryHeader">
+                    <!-- Category header will be dynamically added here -->
+                </div>
+                <div class="product-grid" id="categoryProductGrid">
+                    <!-- Category products will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Help Page -->
+    <div id="help-page" style="display: none;">
+        <section class="section">
+            <div class="container">
+                <div class="help-content">
+                    <h2 data-en="Help Center" data-ar="مركز المساعدة">Help Center</h2>
+                    
+                    <div class="help-section">
+                        <h3 data-en="Shipping Information" data-ar="معلومات الشحن">Shipping Information</h3>
+                        <p data-en="We offer shipping across Egypt with the following options:" data-ar="نقدم خدمة الشحن في جميع أنحاء مصر مع الخيارات التالية:">
+                            We offer shipping across Egypt with the following options:
+                        </p>
+                        <ul>
+                            <li data-en="Standard Shipping (3-5 business days) - EGP 30" data-ar="الشحن العادي (3-5 أيام عمل) - 30 جنيه">
+                                Standard Shipping (3-5 business days) - EGP 30
+                            </li>
+                            <li data-en="Express Shipping (1-2 business days) - EGP 60" data-ar="الشحن السريع (1-2 أيام عمل) - 60 جنيه">
+                                Express Shipping (1-2 business days) - EGP 60
+                            </li>
+                            <li data-en="Free shipping on orders over EGP 1000" data-ar="شحن مجاني للطلبات فوق 1000 جنيه">
+                                Free shipping on orders over EGP 1000
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3 data-en="Returns & Exchanges" data-ar="الإرجاع والاستبدال">Returns & Exchanges</h3>
+                        <p data-en="We want you to be completely satisfied with your purchase. You can return or exchange items within 14 days of delivery." data-ar="نريدك أن تكوني راضية تمامًا عن مشترياتك. يمكنك إرجاع أو استبدال العناصر خلال 14 يومًا من التسليم.">
+                            We want you to be completely satisfied with your purchase. You can return or exchange items within 14 days of delivery.
+                        </p>
+                        <p data-en="Conditions for returns:" data-ar="شروط الإرجاع:">
+                            Conditions for returns:
+                        </p>
+                        <ul>
+                            <li data-en="Items must be unused and in original packaging" data-ar="يجب أن تكون العناصر غير مستخدمة وفي العبوة الأصلية">
+                                Items must be unused and in original packaging
+                            </li>
+                            <li data-en="Tags must still be attached" data-ar="يجب أن تكون البطاقات لا تزال متصلة">
+                                Tags must still be attached
+                            </li>
+                            <li data-en="Return shipping costs are the responsibility of the customer" data-ar="تكاليف شحن الإرجاع هي مسؤولية العميل">
+                                Return shipping costs are the responsibility of the customer
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3 data-en="Size Guide" data-ar="دليل المقاسات">Size Guide</h3>
+                        <p data-en="Our accessories are designed to fit most women comfortably. Here's our general sizing guide:" data-ar="تم تصميم إكسسواراتنا لتناسب معظم النساء بشكل مريح. إليك دليل المقاسات العام:">
+                            Our accessories are designed to fit most women comfortably. Here's our general sizing guide:
+                        </p>
+                        <ul>
+                            <li data-en="Necklaces: Adjustable chains from 40cm to 50cm" data-ar="القلادات: سلاسل قابلة للتعديل من 40 سم إلى 50 سم">
+                                Necklaces: Adjustable chains from 40cm to 50cm
+                            </li>
+                            <li data-en="Earrings: Standard post or hook sizes" data-ar="الأقراط: مقاسات قياسية للبراغي أو الخطاطيف">
+                                Earrings: Standard post or hook sizes
+                            </li>
+                            <li data-en="Hair Accessories: One size fits most" data-ar="إكسسوارات الشعر: مقاس واحد يناسب معظم الأشخاص">
+                                Hair Accessories: One size fits most
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3 data-en="Care Instructions" data-ar="تعليمات العناية">Care Instructions</h3>
+                        <p data-en="To keep your Queen accessories looking their best:" data-ar="للحفاظ على مظهر إكسسوارات Queen بأفضل حال:">
+                            To keep your Queen accessories looking their best:
+                        </p>
+                        <ul>
+                            <li data-en="Store in a dry place away from direct sunlight" data-ar="تخزين في مكان جاف بعيدًا عن أشعة الشمس المباشرة">
+                                Store in a dry place away from direct sunlight
+                            </li>
+                            <li data-en="Avoid contact with water, perfumes, and lotions" data-ar="تجنب ملامسة الماء والعطور والمرطبات">
+                                Avoid contact with water, perfumes, and lotions
+                            </li>
+                            <li data-en="Clean with a soft, dry cloth" data-ar="نظف بقطعة قماش ناعمة وجافة">
+                                Clean with a soft, dry cloth
+                            </li>
+                            <li data-en="Remove before swimming or showering" data-ar="انزع قبل السباحة أو الاستحمام">
+                                Remove before swimming or showering
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-section">
+                        <h3 data-en="FAQs" data-ar="الأسئلة الشائعة">FAQs</h3>
+                        <p><strong data-en="Q: How can I track my order?" data-ar="س: كيف يمكنني تتبع طلبي؟">Q: How can I track my order?</strong></p>
+                        <p data-en="A: Once your order ships, you'll receive a tracking number via email." data-ar="ج: بمجرد شحن طلبك، ستتلقين رقم تتبع عبر البريد الإلكتروني.">
+                            A: Once your order ships, you'll receive a tracking number via email.
+                        </p>
+                        
+                        <p><strong data-en="Q: Do you offer international shipping?" data-ar="س: هل تقدمون شحنًا دوليًا؟">Q: Do you offer international shipping?</strong></p>
+                        <p data-en="A: Currently, we only ship within Egypt." data-ar="ج: حاليًا، نقوم بالشحن داخل مصر فقط.">
+                            A: Currently, we only ship within Egypt.
+                        </p>
+                        
+                        <p><strong data-en="Q: What payment methods do you accept?" data-ar="س: ما هي طرق الدفع التي تقبلونها؟">Q: What payment methods do you accept?</strong></p>
+                        <p data-en="A: We accept credit/debit cards, PayPal, Vodafone Cash, and cash on delivery." data-ar="ج: نقبل بطاقات الائتمان/الخصم، PayPal، فودافون كاش، والدفع عند الاستلام.">
+                            A: We accept credit/debit cards, PayPal, Vodafone Cash, and cash on delivery.
+                        </p>
+                        
+                        <p><strong data-en="Q: Can I modify or cancel my order?" data-ar="س: هل يمكنني تعديل أو إلغاء طلبي؟">Q: Can I modify or cancel my order?</strong></p>
+                        <p data-en="A: You can modify or cancel your order within 1 hour of placing it by contacting our customer service." data-ar="ج: يمكنك تعديل أو إلغاء طلبك خلال ساعة واحدة من وضعه عن طريق الاتصال بخدمة العملاء لدينا.">
+                            A: You can modify or cancel your order within 1 hour of placing it by contacting our customer service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Queen</h3>
+                    <p data-en="Elegant accessories for the modern queen. Crown your look with our exclusive collection." data-ar="إكسسوارات أنيقة للملكة العصرية. توجي مظهرك بمجموعتنا الحصرية.">Elegant accessories for the modern queen. Crown your look with our exclusive collection.</p>
+                </div>
+                <div class="footer-column">
+                    <h3 data-en="Shop" data-ar="المتجر">Shop</h3>
+                    <ul>
+                        <li><a href="#" onclick="openCategoryPage('necklaces')" data-en="Necklaces" data-ar="قلادات">Necklaces</a></li>
+                        <li><a href="#" onclick="openCategoryPage('earrings')" data-en="Earrings" data-ar="أقراط">Earrings</a></li>
+                        <li><a href="#" onclick="openCategoryPage('hair')" data-en="Hair Accessories" data-ar="إكسسوارات الشعر">Hair Accessories</a></li>
+                        <li><a href="#shop" data-en="Bestsellers" data-ar="الأكثر مبيعاً">Bestsellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 data-en="Help" data-ar="المساعدة">Help</h3>
+                    <ul>
+                        <li><a href="#help" data-en="Shipping & Returns" data-ar="الشحن والإرجاع">Shipping & Returns</a></li>
+                        <li><a href="#help" data-en="Size Guide" data-ar="دليل المقاسات">Size Guide</a></li>
+                        <li><a href="#help" data-en="FAQs" data-ar="الأسئلة الشائعة">FAQs</a></li>
+                        <li><a href="#contact" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column" id="contact">
+                    <h3 data-en="Contact" data-ar="اتصل بنا">Contact</h3>
+                    <ul>
+                        <li data-en="Email: hello@queen.com" data-ar="البريد الإلكتروني: hello@queen.com">Email: hello@queen.com</li>
+                        <li data-en="Phone: (123) 456-7890" data-ar="الهاتف: 123-456-7890">Phone: (123) 456-7890</li>
+                        <li data-en="Address: 123 Royal Avenue" data-ar="العنوان: 123 جادة رويال">Address: 123 Royal Avenue</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-en="&copy; 2023 Queen Accessories. All rights reserved." data-ar="&copy; 2023 إكسسوارات Queen. جميع الحقوق محفوظة.">&copy; 2023 Queen Accessories. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeCart">&times;</span>
+            <h2 data-en="Your Cart" data-ar="سلة التسوق">Your Cart</h2>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-total" id="cartTotal">
+                <span data-en="Total:" data-ar="المجموع:">Total:</span> EGP 0.00
+            </div>
+            <button class="btn" id="checkoutBtn" data-en="Proceed to Checkout" data-ar="إتمام الشراء">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeCheckout">&times;</span>
+            <h2 data-en="Checkout" data-ar="إتمام الشراء">Checkout</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="fullName" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address" data-en="Shipping Address" data-ar="عنوان الشحن">Shipping Address</label>
+                    <textarea id="address" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phone" data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label data-en="Payment Method" data-ar="طريقة الدفع">Payment Method</label>
+                    <div class="payment-methods" id="paymentMethods">
+                        <div class="payment-option" data-method="card">
+                            <input type="radio" id="card" name="payment" value="card">
+                            <span class="payment-icon"><i class="far fa-credit-card"></i></span>
+                            <div>
+                                <div data-en="Credit/Debit Card" data-ar="بطاقة ائتمان/مدينة">Credit/Debit Card</div>
+                                <small data-en="Pay securely with your card" data-ar="ادفع بأمان باستخدام بطاقتك">Pay securely with your card</small>
+                            </div>
+                        </div>
+                        <div class="payment-option" data-method="paypal">
+                            <input type="radio" id="paypal" name="payment" value="paypal">
+                            <span class="payment-icon"><i class="fab fa-paypal"></i></span>
+                            <div>
+                                <div>PayPal</div>
+                                <small data-en="Pay with your PayPal account" data-ar="ادفع باستخدام حساب PayPal الخاص بك">Pay with your PayPal account</small>
+                            </div>
+                        </div>
+                        <div class="payment-option" data-method="vodafone">
+                            <input type="radio" id="vodafone" name="payment" value="vodafone">
+                            <span class="payment-icon"><i class="fas fa-mobile-alt"></i></span>
+                            <div>
+                                <div>Vodafone Cash</div>
+                                <small data-en="Pay using Vodafone Cash" data-ar="ادفع باستخدام فودافون كاش">Pay using Vodafone Cash</small>
+                            </div>
+                        </div>
+                        <div class="payment-option" data-method="delivery">
+                            <input type="radio" id="delivery" name="payment" value="delivery">
+                            <span class="payment-icon"><i class="fas fa-money-bill-wave"></i></span>
+                            <div>
+                                <div data-en="Pay on Delivery" data-ar="الدفع عند الاستلام">Pay on Delivery</div>
+                                <small data-en="Pay when you receive your order" data-ar="ادفع عند استلام طلبك">Pay when you receive your order</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn" id="placeOrderBtn" data-en="Place Order" data-ar="تقديم الطلب">
+                    <span data-en="Place Order" data-ar="تقديم الطلب">Place Order</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h2 data-en="Thank You for Your Order!" data-ar="شكراً لك على طلبك!">Thank You for Your Order!</h2>
+            <p data-en="Your order has been placed successfully. A confirmation email has been sent to" data-ar="تم تقديم طلبك بنجاح. تم إرسال بريد إلكتروني تأكيدي إلى">Your order has been placed successfully. A confirmation email has been sent to <strong>rodainaosama97@gmail.com</strong> with all your order details.</p>
+            <p data-en="Order Number:" data-ar="رقم الطلب:">Order Number: <strong id="orderNumber">QUEEN-12345</strong></p>
+            <button class="btn" id="continueShopping" data-en="Continue Shopping" data-ar="مواصلة التسوق">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample Product Data
+        const products = [
+            { id: 1, name: "Rose Gold Pearl Necklace", nameAr: "قلادة لؤلؤية ذهبية وردية", price: 1299, category: "necklaces", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Crystal Drop Earrings", nameAr: "أقراط كريستال متدلية", price: 899, category: "earrings", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Gold-plated Hair Clip", nameAr: "مشبش شعر مطلي بالذهب", price: 499, category: "hair", image: "https://images.unsplash.com/photo-1522338148004-0c22a0443e0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 4, name: "Empire Statement Necklace", nameAr: "قلادة إمبراطورية جريئة", price: 1599, category: "necklaces", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 5, name: "Dainty Hoop Earrings", nameAr: "أقراط دائرة رقيقة", price: 749, category: "earrings", image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 6, name: "Silk Scrunchies Set", nameAr: "مجموعة رباطات شعر حريرية", price: 399, category: "hair", image: "https://images.unsplash.com/photo-1648560069908-30e2b9bb8e27?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 7, name: "Layered Chain Necklace", nameAr: "قلادة سلسلة متعددة الطبقات", price: 1099, category: "necklaces", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 8, name: "Pearl Stud Earrings", nameAr: "أقراط لؤلؤية صغيرة", price: 649, category: "earrings", image: "https://images.unsplash.com/photo-1506634572416-48cdfe530110?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 9, name: "Delicate Choker Necklace", nameAr: "قلادة تشوكر رقيقة", price: 799, category: "necklaces", image: "https://images.unsplash.com/photo-1596944946755-8b6dd76a73c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 10, name: "Statement Tassel Earrings", nameAr: "أقراط شرابة جريئة", price: 999, category: "earrings", image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 11, name: "Crystal Hair Comb", nameAr: "مشط شعر كريستالي", price: 599, category: "hair", image: "https://images.unsplash.com/photo-1559622214-e2d43c6f44a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+            { id: 12, name: "Velvet Headband", nameAr: "عصابة رأس مخملية", price: 349, category: "hair", image: "https://images.unsplash.com/photo-1580651315530-69c8e0026377?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        // Shopping Cart
+        let cart = [];
+        let currentLanguage = 'en';
+        let currentPage = 'home';
+        let currentCategory = '';
+
+        // DOM Elements
+        const homePage = document.getElementById('home-page');
+        const categoryPage = document.getElementById('category-page');
+        const helpPage = document.getElementById('help-page');
+        const productGrid = document.getElementById('productGrid');
+        const categoryHeader = document.getElementById('categoryHeader');
+        const categoryProductGrid = document.getElementById('categoryProductGrid');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeCheckout = document.getElementById('closeCheckout');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const placeOrderBtn = document.getElementById('placeOrderBtn');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const continueShopping = document.getElementById('continueShopping');
+        const cartCount = document.querySelector('.cart-count');
+        const languageSelect = document.getElementById('languageSelect');
+        const paymentMethods = document.getElementById('paymentMethods');
+        const newsletterForm = document.getElementById('newsletterForm');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            updateCartCount();
+            
+            // Event Listeners
+            cartIcon.addEventListener('click', openCartModal);
+            closeCart.addEventListener('click', closeCartModal);
+            checkoutBtn.addEventListener('click', openCheckoutModal);
+            closeCheckout.addEventListener('click', closeCheckoutModal);
+            checkoutForm.addEventListener('submit', placeOrder);
+            continueShopping.addEventListener('click', closeConfirmationModal);
+            languageSelect.addEventListener('change', switchLanguage);
+            newsletterForm.addEventListener('submit', subscribeNewsletter);
+            
+            // Payment method selection
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.payment-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    const radio = this.querySelector('input[type="radio"]');
+                    radio.checked = true;
+                });
+            });
+            
+            // Navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href').substring(1);
+                    navigateToPage(target);
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === cartModal) {
+                    closeCartModal();
+                }
+                if (event.target === checkoutModal) {
+                    closeCheckoutModal();
+                }
+                if (event.target === confirmationModal) {
+                    closeConfirmationModal();
+                }
+            });
+        });
+
+        // Navigation
+        function navigateToPage(page) {
+            // Hide all pages
+            homePage.style.display = 'none';
+            categoryPage.style.display = 'none';
+            helpPage.style.display = 'none';
+            
+            // Show the selected page
+            if (page === 'home' || page === 'shop' || page === 'about' || page === 'contact') {
+                homePage.style.display = 'block';
+                currentPage = 'home';
+                
+                // Scroll to section if needed
+                if (page !== 'home') {
+                    setTimeout(() => {
+                        document.getElementById(page).scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            } else if (page === 'help') {
+                helpPage.style.display = 'block';
+                currentPage = 'help';
+            }
+            // Category pages are handled separately
+        }
+
+        // Language Switching
+        function switchLanguage() {
+            currentLanguage = languageSelect.value;
+            
+            // Update text direction
+            if (currentLanguage === 'ar') {
+                document.body.classList.add('rtl');
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                document.body.classList.remove('rtl');
+                document.body.setAttribute('dir', 'ltr');
+            }
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (currentLanguage === 'en') {
+                    if (element.hasAttribute('data-en-placeholder')) {
+                        element.setAttribute('placeholder', element.getAttribute('data-en-placeholder'));
+                    } else {
+                        element.textContent = element.getAttribute('data-en');
+                    }
+                } else {
+                    if (element.hasAttribute('data-ar-placeholder')) {
+                        element.setAttribute('placeholder', element.getAttribute('data-ar-placeholder'));
+                    } else {
+                        element.textContent = element.getAttribute('data-ar');
+                    }
+                }
+            });
+            
+            // Re-render products with correct language
+            renderProducts();
+            
+            // Update cart if open
+            if (cartModal.style.display === 'flex') {
+                renderCartItems();
+            }
+            
+            // Update category page if open
+            if (currentPage === 'category') {
+                renderCategoryPage(currentCategory);
+            }
+        }
+
+        // Render Products
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            // Show only 8 products on home page
+            const homeProducts = products.slice(0, 8);
+            homeProducts.forEach(product => {
+                const productCard = createProductCard(product);
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        // Create Product Card
+        function createProductCard(product) {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <div class="product-image" style="background-image: url('${product.image}');">
+                    <div style="background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px;">
+                        ${currentLanguage === 'en' ? product.name : product.nameAr}
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">${currentLanguage === 'en' ? product.name : product.nameAr}</div>
+                    <div class="product-price">EGP ${product.price.toFixed(2)}</div>
+                    <button class="btn" onclick="addToCart(${product.id})" data-en="Add to Cart" data-ar="أضف إلى السلة">Add to Cart</button>
+                </div>
+            `;
+            return productCard;
+        }
+
+        // Open Category Page
+        function openCategoryPage(category) {
+            // Hide all pages
+            homePage.style.display = 'none';
+            categoryPage.style.display = 'block';
+            helpPage.style.display = 'none';
+            
+            currentPage = 'category';
+            currentCategory = category;
+            
+            renderCategoryPage(category);
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        }
+
+        // Render Category Page
+        function renderCategoryPage(category) {
+            // Set category header
+            let categoryName = '';
+            let categoryDescription = '';
+            
+            if (category === 'necklaces') {
+                categoryName = currentLanguage === 'en' ? 'Necklaces' : 'قلادات';
+                categoryDescription = currentLanguage === 'en' 
+                    ? 'Discover our elegant collection of necklaces to complement your style.' 
+                    : 'اكتشفي مجموعتنا الأنيقة من القلادات لتكملي مظهرك.';
+            } else if (category === 'earrings') {
+                categoryName = currentLanguage === 'en' ? 'Earrings' : 'أقراط';
+                categoryDescription = currentLanguage === 'en' 
+                    ? 'Find the perfect pair of earrings to frame your face beautifully.' 
+                    : 'ابحثي عن الزوج المثالي من الأقراط لتأطير وجهك بشكل جميل.';
+            } else if (category === 'hair') {
+                categoryName = currentLanguage === 'en' ? 'Hair Accessories' : 'إكسسوارات الشعر';
+                categoryDescription = currentLanguage === 'en' 
+                    ? 'Complete your look with our stylish hair accessories.' 
+                    : 'أكملي مظهرك بإكسسوارات الشعر الأنيقة لدينا.';
+            }
+            
+            categoryHeader.innerHTML = `
+                <h1>${categoryName}</h1>
+                <p>${categoryDescription}</p>
+            `;
+            
+            // Filter and display products
+            const categoryProducts = products.filter(product => product.category === category);
+            categoryProductGrid.innerHTML = '';
+            
+            categoryProducts.forEach(product => {
+                const productCard = createProductCard(product);
+                categoryProductGrid.appendChild(productCard);
+            });
+        }
+
+        // Cart Functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    nameAr: product.nameAr,
+                    price: product.price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            showAddToCartFeedback();
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        function showAddToCartFeedback() {
+            // Create a temporary notification
+            const notification = document.createElement('div');
+            notification.textContent = currentLanguage === 'en' ? 'Item added to cart!' : 'تمت إضافة المنتج إلى السلة!';
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.right = currentLanguage === 'ar' ? 'auto' : '20px';
+            notification.style.left = currentLanguage === 'ar' ? '20px' : 'auto';
+            notification.style.backgroundColor = 'var(--rose-gold)';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '4px';
+            notification.style.zIndex = '1000';
+            notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 2000);
+        }
+
+        function openCartModal() {
+            renderCartItems();
+            cartModal.style.display = 'flex';
+        }
+
+        function closeCartModal() {
+            cartModal.style.display = 'none';
+        }
+
+        function renderCartItems() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<p>${currentLanguage === 'en' ? 'Your cart is empty.' : 'سلة التسوق فارغة.'}</p>`;
+                cartTotal.innerHTML = `<span>${currentLanguage === 'en' ? 'Total:' : 'المجموع:'}</span> EGP 0.00`;
+                return;
+            }
+            
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div>
+                        <div class="product-name">${currentLanguage === 'en' ? item.name : item.nameAr}</div>
+                        <div>EGP ${item.price.toFixed(2)} x ${item.quantity}</div>
+                    </div>
+                    <div>
+                        <strong>EGP ${itemTotal.toFixed(2)}</strong>
+                        <button onclick="removeFromCart(${item.id})" style="margin-left: 10px; background: none; border: none; color: var(--rose-gold); cursor: pointer;">${currentLanguage === 'en' ? 'Remove' : 'إزالة'}</button>
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartTotal.innerHTML = `<span>${currentLanguage === 'en' ? 'Total:' : 'المجموع:'}</span> EGP ${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            renderCartItems();
+            updateCartCount();
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                alert(currentLanguage === 'en' ? 'Your cart is empty. Add some items before checking out.' : 'سلة التسوق فارغة. أضفي بعض المنتجات قبل إتمام الشراء.');
+                return;
+            }
+            
+            closeCartModal();
+            checkoutModal.style.display = 'flex';
+        }
+
+        function closeCheckoutModal() {
+            checkoutModal.style.display = 'none';
+        }
+
+        function placeOrder(e) {
+            e.preventDefault();
+            
+            // Get selected payment method
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            if (!selectedPayment) {
+                alert(currentLanguage === 'en' ? 'Please select a payment method.' : 'يرجى اختيار طريقة الدفع.');
+                return;
+            }
+            
+            // Show loading state
+            const originalText = placeOrderBtn.innerHTML;
+            placeOrderBtn.innerHTML = `<span class="loading"></span> ${currentLanguage === 'en' ? 'Processing...' : 'جاري المعالجة...'}`;
+            placeOrderBtn.disabled = true;
+            
+            // Generate a random order number
+            const orderNumber = 'QUEEN-' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('orderNumber').textContent = orderNumber;
+            
+            // Send order details to email
+            setTimeout(() => {
+                sendOrderEmail(selectedPayment.value);
+                
+                // Reset button
+                placeOrderBtn.innerHTML = originalText;
+                placeOrderBtn.disabled = false;
+                
+                closeCheckoutModal();
+                confirmationModal.style.display = 'flex';
+                
+                // Clear the cart
+                cart = [];
+                updateCartCount();
+            }, 1500);
+        }
+
+        function sendOrderEmail(paymentMethod) {
+            // In a real application, this would be handled by a backend service
+            // For this demo, we'll use a simple email sending approach
+            
+            const customerName = document.getElementById('fullName').value;
+            const customerEmail = document.getElementById('email').value;
+            const customerAddress = document.getElementById('address').value;
+            const customerPhone = document.getElementById('phone').value;
+            
+            // Calculate order total
+            const orderTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            
+            // Create email content
+            const subject = `New Order #${document.getElementById('orderNumber').textContent} - Queen Accessories`;
+            
+            let emailBody = `NEW ORDER RECEIVED\n\n`;
+            emailBody += `Order Details:\n`;
+            emailBody += `Order Number: ${document.getElementById('orderNumber').textContent}\n`;
+            emailBody += `Order Date: ${new Date().toLocaleString()}\n`;
+            emailBody += `Payment Method: ${paymentMethod}\n\n`;
+            
+            emailBody += `Customer Information:\n`;
+            emailBody += `Name: ${customerName}\n`;
+            emailBody += `Email: ${customerEmail}\n`;
+            emailBody += `Phone: ${customerPhone}\n`;
+            emailBody += `Address: ${customerAddress}\n\n`;
+            
+            emailBody += `Order Items:\n`;
+            emailBody += `----------------------------------------\n`;
+            
+            cart.forEach(item => {
+                emailBody += `${currentLanguage === 'en' ? item.name : item.nameAr}\n`;
+                emailBody += `Quantity: ${item.quantity} | Price: EGP ${item.price.toFixed(2)} | Total: EGP ${(item.price * item.quantity).toFixed(2)}\n\n`;
+            });
+            
+            emailBody += `----------------------------------------\n`;
+            emailBody += `Order Total: EGP ${orderTotal.toFixed(2)}\n\n`;
+            emailBody += `Thank you for your business!\nQueen Accessories Team`;
+            
+            // In a real application, you would send this to your backend
+            // For this demo, we'll use a simple approach with mailto
+            const mailtoLink = `mailto:rodainaosama97@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Also log to console for demonstration
+            console.log('Order details sent to rodainaosama97@gmail.com:', {
+                orderNumber: document.getElementById('orderNumber').textContent,
+                customer: {
+                    name: customerName,
+                    email: customerEmail,
+                    address: customerAddress,
+                    phone: customerPhone
+                },
+                items: cart,
+                paymentMethod: paymentMethod,
+                total: orderTotal
+            });
+        }
+
+        function closeConfirmationModal() {
+            confirmationModal.style.display = 'none';
+            // Reset the form
+            checkoutForm.reset();
+            document.querySelectorAll('.payment-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Return to home page
+            navigateToPage('home');
+        }
+
+        // Newsletter Subscription
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            
+            // Show success message
+            alert(currentLanguage === 'en' 
+                ? `Thank you for subscribing with ${email}! You'll receive our latest updates soon.` 
+                : `شكرًا لك على الاشتراك باستخدام ${email}! ستصلك أحدث تحديثاتنا قريبًا.`);
+            
+            // Reset form
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
